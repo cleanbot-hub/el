@@ -11,13 +11,15 @@
             font-family: Arial, sans-serif;
         }
 
-        .section {
+        .section1,.section2 {
             margin: 20px;
         }
 
-        .section h2 {
+        .section1, .section2 h2 {
             text-align: center;
         }
+
+
 
         .grid-container {
             display: grid;
@@ -69,6 +71,11 @@
             margin-top: 20px;
             font-size: 20px;
         }
+
+        .check{
+            display:flex;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -81,7 +88,13 @@
 
         <div id="timer"></div>
 
-        <div class="section">
+        
+        <div class="check">
+        <label><input type="checkbox" id="section1Checkbox" checked>SOOP TV</label>
+        <label><input type="checkbox" id="section2Checkbox" checked>치지직</label>
+    </div>
+
+        <div class="section1">
             <h2>SOOP TV</h2>
 
             <div class="grid-container">
@@ -127,7 +140,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section2">
             <h2>치지직</h2>
 
             <div class="grid-container">
@@ -181,11 +194,53 @@
             </div>
         </div>
 
+       
+
+
     </div>
+
+ 
+
+
+
+
+
 
 
     <script>
-        // Countdown timer function
+       
+     // Function to toggle visibility of Section 1
+     function toggleSection1Visibility() {
+            var section1 = document.querySelector('.section1');
+            var section1Checkbox = document.getElementById('section1Checkbox');
+            if (section1Checkbox.checked) {
+                section1.style.display = 'block';
+            } else {
+                section1.style.display = 'none';
+            }
+        }
+
+        // Function to toggle visibility of Section 2
+        function toggleSection2Visibility() {
+            var section2 = document.querySelector('.section2');
+            var section2Checkbox = document.getElementById('section2Checkbox');
+            if (section2Checkbox.checked) {
+                section2.style.display = 'block';
+            } else {
+                section2.style.display = 'none';
+            }
+        }
+
+        // Event listeners for the checkboxes
+        document.getElementById('section1Checkbox').addEventListener('change', toggleSection1Visibility);
+        document.getElementById('section2Checkbox').addEventListener('change', toggleSection2Visibility);
+       
+       
+       
+       
+       
+       
+       // Countdown timer function
         function countdown() {
             var now = new Date();
             var target = new Date();
